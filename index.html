@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>年越しタイマー</title>
+    <style>
+        body {
+            background-color: #333;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            flex-direction: column;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        #countdown {
+            font-size: 3rem;
+            color: #ff6f61;
+        }
+        footer {
+            position: absolute;
+            bottom: 10px;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+    </style>
+    <script>
+        function updateTime() {
+            
+            const now = new Date();
+            const newYear = new Date(now.getFullYear() + 1, 0, 1, 0, 0, 0);
+
+            
+            const timeRemaining = newYear - now;
+
+            
+            const seconds = (timeRemaining / 1000).toFixed(3);
+            document.getElementById("countdown").innerText = seconds;
+        }
+
+        setInterval(updateTime, 1);
+    </script>
+</head>
+<body>
+    <div>
+        <h1>年越しタイマー</h1>
+        <p>年越しまであと <span id="countdown"></span> 秒</p>
+    </div>
+    <footer>
+        Created by Pikushi
+    </footer>
+</body>
+</html>
+
